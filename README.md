@@ -65,3 +65,16 @@ This repository is licensed under the MIT License. See the [LICENSE](LICENSE) fi
 ## Contact
 
 If you have any questions or need further assistance, please feel free to contact us at [alex.sang@monash.edu](mailto:alex.sang@monash.edu), [qiqin.yu@monash.edu](mailto:qiqin.yu@monash.edu).
+
+## Citation
+
+If you find this repository useful, please consider giving a star ⭐ and citation
+
+```bibtex
+@article{sang2024smartphone,
+  title={Smartphone-Based IRI Estimation for Pavement Roughness Monitoring: A Data-Driven Approach},
+  author={Sang, Ye and Yu, Qiqin and Fang, Yihai and Vo, Viet and Wix, Richard},
+  journal={IEEE Internet of Things Journal},
+  year={2024},
+  publisher={IEEE}
+}
