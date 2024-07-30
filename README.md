@@ -1,5 +1,5 @@
 
-# Deep Learning Models for Testing
+# Development of crowdsourcing technology for pavement condition assessment including the use of smart mobile phones
 
 This repository contains four deep learning models in `h5` format, along with a test dataset for evaluating these models. The test dataset is provided as a compressed file containing two CSV files: `semi_x_test.csv` and `semi_y_test.csv`.
 
@@ -14,11 +14,11 @@ This repository contains four deep learning models in `h5` format, along with a 
 
 ### Download the Models and Test Dataset
 
-To get started, download the models and the test dataset from this repository. You can download them directly from the repository's [Releases](https://github.com/Alexender-Ye/semi_supervised_learning.git) page or use the following commands:
+To get started, download the models and the test dataset from this repository. You can use the following commands:
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/your-repo.git
+git clone https://github.com/Alexender-Ye/semi_supervised_learning.git
 
 ```
 
@@ -64,4 +64,4 @@ This repository is licensed under the MIT License. See the [LICENSE](LICENSE) fi
 
 ## Contact
 
-If you have any questions or need further assistance, please feel free to contact us at [alex.sang@monash.edu](mailto:alex.sang@monash.edu),[qiqin.yu@monash.edu](mailto:qiqin.yu@monash.edu).
+If you have any questions or need further assistance, please feel free to contact us at [alex.sang@monash.edu](mailto:alex.sang@monash.edu), [qiqin.yu@monash.edu](mailto:qiqin.yu@monash.edu).
