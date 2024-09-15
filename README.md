@@ -52,8 +52,14 @@ print(f'MSE: {mse}')
 
 #### script used to test mean teacher:
 ```python
+import numpy as np
 import pandas as pd
-from tensorflow.keras.models import load_model
+import tensorflow as tf
+from keras import models
+import os
+import random
+from sklearn.metrics import mean_squared_error
+
 
 random.seed(42)
 tf.random.set_seed(42)
