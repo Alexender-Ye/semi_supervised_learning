@@ -17,7 +17,6 @@ This repository contains four deep learning models in `h5` format, along with a 
 To get started, download the models and the test dataset from this repository. You can use the following commands:
 
 ```bash
-# Clone the repository
 git clone https://github.com/Alexender-Ye/semi_supervised_learning.git
 
 ```
