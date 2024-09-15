@@ -48,8 +48,8 @@ print(f'Model Accuracy: {accuracy * 100:.2f}%')
 2. **MLP_pseudo**: Original model enhanced by Pseudl-label semi-supervised learning.
 3. **MLP.h5**: The original model that serves as a baseline in this work.
 4. **mean_teacher_best_model.h5**: Original model enhanced by mean-teacher.
-4. **GAN.h5**: Original model enhanced by conditional GAN.
-5. 
+5. **GAN.h5**: Original model enhanced by conditional GAN.
+
 ### Testing Dataset Details
 
 - **semi_x_test.csv**: Contains the feature set for testing the models.
