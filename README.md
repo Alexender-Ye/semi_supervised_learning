@@ -18,12 +18,24 @@ To get started, download the models and the test dataset from this repository. Y
 
 ```bash
 git clone https://github.com/Alexender-Ye/semi_supervised_learning.git
-
 ```
+
+### List of Models
+
+1. **MLP_VIME.h5**: Original model enhanced by VIME.
+2. **MLP_pseudo**: Original model enhanced by Pseudl-label semi-supervised learning.
+3. **MLP.h5**: The original model that serves as a baseline in this work.
+4. **mean_teacher_best_model.h5**: Original model enhanced by mean-teacher.
+5. **GAN.h5**: Original model enhanced by conditional GAN.
+
+### Testing Dataset Details
+
+- **scaled_x_test.csv**: Contains the feature set for testing the models.
+- **semi_y_test.csv**: Contains the labels corresponding to the features in `semi_x_test.csv`.
 
 ### Load and Test the Models
 
-Below is several examples used to describe how to use the models listed in our paper:
+Below are several examples used to describe how to use the models listed in our paper:
 
 
 #### script used to test pseudo-label, cGAN-based MLP, and our baseline model
@@ -124,18 +136,7 @@ print(f'MSE: {mse}')
 
 ```
 
-### List of Models
 
-1. **MLP_VIME.h5**: Original model enhanced by VIME.
-2. **MLP_pseudo**: Original model enhanced by Pseudl-label semi-supervised learning.
-3. **MLP.h5**: The original model that serves as a baseline in this work.
-4. **mean_teacher_best_model.h5**: Original model enhanced by mean-teacher.
-5. **GAN.h5**: Original model enhanced by conditional GAN.
-
-### Testing Dataset Details
-
-- **scaled_x_test.csv**: Contains the feature set for testing the models.
-- **semi_y_test.csv**: Contains the labels corresponding to the features in `semi_x_test.csv`.
 
 ## Contributing
 
