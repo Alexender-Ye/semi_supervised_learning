@@ -78,8 +78,8 @@ y_test = pd.read_csv('semi_y_test.csv')
 
 # Load the model
 model = tf.keras.models.load_model('./mean_teacher_best_model.h5',custom_objects={'mean_teacher_loss': mean_teacher_loss})
-pred = model.predict(X_test)
-mse = tf.keras.metrics.MeanSquaredError()(Y_test, pred).numpy()
+pred = model.predict(x_test)
+mse = tf.keras.metrics.MeanSquaredError()(y_test, pred).numpy()
 print(f'MSE: {mse}')
 ```
 
