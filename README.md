@@ -7,7 +7,7 @@ This repository contains four deep learning models in `h5` format, along with a 
 
 - **Models**: Four deep learning models in `h5` format.
 - **Test Dataset**: A compressed file with the following CSV files:
-  - `semi_x_test.csv`: Features for testing.
+  - `scaled_x_test.csv`: Features for testing (the values of the feature have been scaled).
   - `semi_y_test.csv`: Corresponding labels for testing.
 
 ## Usage
@@ -24,7 +24,7 @@ git clone https://github.com/Alexender-Ye/semi_supervised_learning.git
 
 ### Load and Test the Models
 
-Below is an example of how to load and test one of the models using Python:
+Below is an example of how to load and test one of the models using Python:(the methods used to load VIME and mean-teacher model will be updated later)
 
 ```python
 import pandas as pd
@@ -44,11 +44,12 @@ print(f'Model Accuracy: {accuracy * 100:.2f}%')
 
 ### List of Models
 
-1. **MLP(VIME).h5**: Original model enhanced by VIME.
-2. **MLP(pseudo_label).h5**: Original model enhanced by Pseudl-label semi-supervised learning.
-3. **MLP(pure).h5**: The original model that serves as a baseline in this work.
+1. **MLP_VIME.h5**: Original model enhanced by VIME.
+2. **MLP_pseudo**: Original model enhanced by Pseudl-label semi-supervised learning.
+3. **MLP.h5**: The original model that serves as a baseline in this work.
 4. **mean_teacher_best_model.h5**: Original model enhanced by mean-teacher.
-
+4. **GAN.h5**: Original model enhanced by conditional GAN.
+5. 
 ### Testing Dataset Details
 
 - **semi_x_test.csv**: Contains the feature set for testing the models.
