@@ -1,7 +1,7 @@
 
 # Development of crowdsourcing technology for pavement condition assessment
 
-This repository contains four deep learning models in `h5` format, along with a test dataset for evaluating these models. The test dataset is provided as a compressed file containing two CSV files: `semi_x_test.csv` and `semi_y_test.csv`.
+This repository contains four deep learning models in `h5` format, along with a test dataset for evaluating these models. The test dataset is provided as a compressed file containing two CSV files: `scaled_x_test.csv` and `semi_y_test.csv`.
 
 ## Contents
 
