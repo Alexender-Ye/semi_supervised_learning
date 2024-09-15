@@ -24,22 +24,99 @@ git clone https://github.com/Alexender-Ye/semi_supervised_learning.git
 
 ### Load and Test the Models
 
-Below is an example of how to load and test one of the models using Python:(the methods used to load VIME and mean-teacher model will be updated later)
+Below is several examples used to describe how to use the models listed in our paper:
 
+
+#### script used to test pseudo-label, cGAN-based MLP, and our baseline model
 ```python
 import pandas as pd
 from tensorflow.keras.models import load_model
 
+random.seed(42)
+tf.random.set_seed(42)
+np.random.seed = 42
+os.environ['PYTHONHASHSEED'] = str(42)
+np.random.RandomState(seed=42)
+
 # Load the test data
-x_test = pd.read_csv('semi_x_test.csv')
+x_test = pd.read_csv('scaled_x_test.csv')
 y_test = pd.read_csv('semi_y_test.csv')
 
 # Load the model
-model = load_model('your_model_name.h5')
+model = load_model('model_name.h5')
 
 # Evaluate the model
-loss, accuracy = model.evaluate(x_test, y_test)
-print(f'Model Accuracy: {accuracy * 100:.2f}%')
+loss, mse = model.evaluate(x_test, y_test)
+print(f'MSE: {mse}')
+```
+
+#### script used to test mean teacher:
+```python
+import pandas as pd
+from tensorflow.keras.models import load_model
+
+random.seed(42)
+tf.random.set_seed(42)
+np.random.seed = 42
+os.environ['PYTHONHASHSEED'] = str(42)
+np.random.RandomState(seed=42)
+
+def mean_teacher_loss(z, pre1, pre2, pre3, pre4):
+    student_loss = tf.keras.losses.MeanSquaredError()
+    supervised_loss = student_loss(z, pre1)
+    consistency_loss = 0.2 * float((mean_squared_error(pre1, pre3) + mean_squared_error(pre2, pre4)) / 2)
+    return supervised_loss + consistency_loss
+
+# Load the test data
+x_test = pd.read_csv('scaled_x_test.csv')
+y_test = pd.read_csv('semi_y_test.csv')
+
+# Load the model
+model = tf.keras.models.load_model('./mean_teacher_best_model.h5',custom_objects={'mean_teacher_loss': mean_teacher_loss})
+pred = model.predict(X_test)
+mse = tf.keras.metrics.MeanSquaredError()(Y_test, pred).numpy()
+print(f'MSE: {mse}')
+```
+
+#### script used to test VIME:
+```python
+import numpy as np
+import pandas as pd
+import tensorflow as tf
+from keras import models
+import os
+import random
+
+
+random.seed(42)
+tf.random.set_seed(42)
+np.random.seed = 42
+os.environ['PYTHONHASHSEED'] = str(42)
+np.random.RandomState(seed=42)
+
+def get_encoder(file_name):
+    tmp_model = tf.keras.models.load_model(file_name)
+    layer_name = tmp_model.layers[1].name
+    layer_output = tmp_model.get_layer(layer_name).output
+    encoder = models.Model(inputs=tmp_model.input, outputs=layer_output)
+    return encoder
+
+X_test = pd.read_csv("./scaled_x_test.csv")
+Y_test = pd.read_csv("./semi_y_test.csv")
+
+file_name = '../vime_encoder_folder'
+
+vime_self_encoder = get_encoder(file_name)
+layer_name = vime_self_encoder.layers[1].name
+layer_output = vime_self_encoder.get_layer(layer_name).output
+encoder = models.Model(inputs=vime_self_encoder.input, outputs=layer_output)
+x_test_hat = vime_self_encoder.predict(X_test, verbose=0)
+
+model = tf.keras.models.load_model('./MLP_VIME.h5')
+pred = model.predict(x_test_hat)
+mse = tf.keras.metrics.MeanSquaredError()(Y_test, pred).numpy()
+print(f'MSE: {mse}')
+
 ```
 
 ### List of Models
@@ -52,7 +129,7 @@ print(f'Model Accuracy: {accuracy * 100:.2f}%')
 
 ### Testing Dataset Details
 
-- **semi_x_test.csv**: Contains the feature set for testing the models.
+- **scaled_x_test.csv**: Contains the feature set for testing the models.
 - **semi_y_test.csv**: Contains the labels corresponding to the features in `semi_x_test.csv`.
 
 ## Contributing
