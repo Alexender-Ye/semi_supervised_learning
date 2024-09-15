@@ -83,7 +83,7 @@ mse = tf.keras.metrics.MeanSquaredError()(Y_test, pred).numpy()
 print(f'MSE: {mse}')
 ```
 
-#### script used to test VIME:
+#### script used to test VIME (before you run the following codes, make sure unzip the encoder file):
 ```python
 import numpy as np
 import pandas as pd
