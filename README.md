@@ -23,7 +23,7 @@ git clone https://github.com/Alexender-Ye/semi_supervised_learning.git
 ### List of Models
 
 1. **MLP_VIME.h5**: Original model enhanced by VIME.
-2. **MLP_pseudo**: Original model enhanced by Pseudl-label semi-supervised learning.
+2. **MLP_pseudo.h5**: Original model enhanced by Pseudl-label semi-supervised learning.
 3. **MLP.h5**: The original model that serves as a baseline in this work.
 4. **mean_teacher_best_model.h5**: Original model enhanced by mean-teacher.
 5. **GAN.h5**: Original model enhanced by conditional GAN.
@@ -31,7 +31,7 @@ git clone https://github.com/Alexender-Ye/semi_supervised_learning.git
 ### Testing Dataset Details
 
 - **scaled_x_test.csv**: Contains the feature set for testing the models.
-- **semi_y_test.csv**: Contains the labels corresponding to the features in `semi_x_test.csv`.
+- **semi_y_test.csv**: Contains the labels corresponding to the features in `scaled_x_test.csv`.
 
 ### Load and Test the Models
 
